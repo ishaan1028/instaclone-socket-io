@@ -1,4 +1,10 @@
-const io = require("socket.io")(process.env.PORT || 8900, {
+const express = require('express');
+
+const app = express().listen(8900 || process.env.PORT, () => {
+    console.log("port 8900")
+});
+
+const io = require("socket.io")(app, {
     cors: {
         origin: "https://instaclone-react-by-ishaan.netlify.app"
     }
